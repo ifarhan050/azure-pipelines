@@ -1,6 +1,0 @@
-trigger:
-  branches:
-    include:
-      - main  # Run the pipeline only when merging into main
-
-pr: none  # Prevents the pipeline from running on PR commits
