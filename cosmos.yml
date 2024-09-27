@@ -1,0 +1,19 @@
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      pulumi login
+  displayName: 'Login to Pulumi'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      pulumi stack select dev
+      pulumi config set githubToken $(githubToken) --secret
+      pulumi up --yes
+  displayName: 'Run Pulumi'
+  env:
+    PULUMI_ACCESS_TOKEN: $(PULUMI_ACCESS_TOKEN)
+    PULUMI_CONFIG_PASSPHRASE: $(PULUMI_CONFIG_PASSPH
+
